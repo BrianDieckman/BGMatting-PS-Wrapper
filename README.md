@@ -53,6 +53,8 @@ The path specified will be searched for \*\_background.\* and \*\_plate.\* image
 
 Note that if -Jobfolder is specified, all other arguments are ignored.
 
+### NOTE that the syn-comp-adobe model is configured for use in this script. If you want to use a different model, change the "syn-comp-adobe" text on line 213 to whichever model you prefer to use ###
+
 ## Related ##
 This is my first forray into any kind of deep network or machine learning of any kind. By a stroke of luck, my workstation has an Nvidia Quadro K620 so I was able to move forward in my Windows environment. Mr. Sengupta's "Getting Started" section was enough information for me to stumble into a functioning environment but they are for a Linux distribution and aren't exhaustive. Below are the steps I took to get this working on my Windows machine.
 
