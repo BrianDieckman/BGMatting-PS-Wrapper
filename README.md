@@ -60,11 +60,37 @@ This is my first forray into any kind of deep network or machine learning of any
 - Download and install the CUDA Toolkit. [Download it from NVIDIA here.](https://developer.nvidia.com/cuda-downloads?target_os=Windows&target_arch=x86_64) Note the version of CUDA you're installing.
 - Download and install the appropriate cuDNN primitives for the CUDA toolkit you installed. [Download it from NVIDIA here.](https://developer.nvidia.com/rdp/form/cudnn-download-survey) You must be registered with NVIDIA's Developer Program in order to obtain it there.
 - Download and install Git. (I prefer the command line, so ensure you install support for that.) [Download it from gitforwindows here.](https://gitforwindows.org/)
-- Open a command prompt and navigate to your user directory. (C:\users\yourusername)
-Clone repository: 
+- Open a command prompt and navigate to your user directory. (C:\users\yourusername) Clone repository: 
 ```
 git clone https://github.com/senguptaumd/Background-Matting.git
 ```
+- CD into your new Background-Matting folder then Clone the Deeplabv3+ repository:
+```
+git clone https://github.com/tensorflow/models.git
+```
+- Download the pre-trained models from [Google Drive](https://drive.google.com/drive/folders/1WLDBC_Q-cA72QC8bB-Rdj53UB2vSPnXv?usp=sharing) and place the 4 folders inside `Background-Matting/models`. _(This differs from the Background-Matting instructions: on Windows, the "Models" folder would overwrite the "models" repository since Windows doesn't differentiate between M and m in folder names)_
 - Download and install Python 3. (This may not be strictly necessary but I wanted to update my machine to v3 anyway) [Download it from the Python Software Foundation here.](https://www.python.org/downloads/windows/)
+- Set some Environment Variables: (In Windows 10: System --> System Info --> Advanced System Settings --> Environment Variables)
+  - Create a new User variable "LD_LIBRARY_PATH" with the value [YOUR CUDAINSTALL/lib64 FOLDER]
+  - Create a new User variable "CUDA_VISIBLE_DEVICES" with the value "0" (zero)
+  - Update the PYTHONPATH to include ...Background-Matting\models\research\ and ...Background-Matting\models\research\slim
+- Update your $PATH (In Windows 10: System --> System Info --> Advanced System Settings --> Environment Variables --> Path)
+  - Add the path to your Python folder
+  - Add the path to your CUDA /lib64 folder
 - Download and install Anaconda. [Download it from Anaconda Inc. here.](https://www.anaconda.com/products/individual)
-- More to come...
+- From the Start Menu, run Anaconda Navigator
+  - Click on "Environments" then "Create". Name it "back-matting" and choose Python 3.7
+  - Click on the "start" button (the little triangle next to "back-matting") and then click "Open Terminal"
+- In this new terminal window, CD to your Background-Matting repository. Install PyTorch, Tensorflow and dependencies
+```
+conda install pytorch=1.1.0 torchvision cudatoolkit=10.0 -c pytorch
+pip install tensorflow-gpu==1.14.0
+pip install -r requirements.txt
+
+```
+
+That should be it. In my situation, the "CUDA_VISIBLE_DEVICES" variable wouldn't stick so I had to:
+```
+conda env config vars set CUDA_VISIBLE_DEVICES=0
+conda activate back-matting
+```
