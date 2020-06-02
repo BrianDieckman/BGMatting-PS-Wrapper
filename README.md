@@ -21,31 +21,31 @@ Ensure PowerShell 4 or higher is installed on the machine where the matting proj
 
 ## Use ##
 There are 3 ways to use the script:
-- Prompt (most cumbersome)
+# Prompt (most cumbersome) #
   - First launch your Anaconda Environment into a Terminal.
   - At the command prompt, run:
 ```
 powershell.exe aiclean.ps1
 ```
-  - This will prompt you for all the necessary files. Watch the command window for prompts. SINGLE FILE MODE: only one subject image can be processed at a time using this method.
+This will prompt you for all the necessary files. Watch the command window for prompts. SINGLE FILE MODE: only one subject image can be processed at a time using this method.
   
-- Command Line Switches (most typing)
+# Command Line Switches (most typing) #
   - First launch your Anaconda Environment into a Terminal.
   - At the command prompt, run:
 ```
 powershell.exe aiclean.ps1 -commandSwitches...
 ```
-  - Supported command switches are:
-    - Plate ([Path] or [File]) This is the path to the plate. (Background or scene without the subject) If you specify a path, the path will be searched for a file with the name "\*\_plate.\*"
-    - Subject ([Path] or [File]) This is the path to your subject photo. If you specify a path, all files (except \_plate and \_background) will be used.
-    - Background ([Path] or [File]) This is the path to your desired background. If you specify a path, the path will be searched for a file with the name "\*\_background.\*"
-    - Output ([Path]) Where you want the output files to land.
-    - _One additional command line switch "Jobfolder" is supported; described in the next section.
+Supported command switches are:
+- Plate ([Path] or [File]) This is the path to the plate. (Background or scene without the subject) If you specify a path, the path will be searched for a file with the name "\*\_plate.\*"
+- Subject ([Path] or [File]) This is the path to your subject photo. If you specify a path, all files (except \_plate and \_background) will be used.
+- Background ([Path] or [File]) This is the path to your desired background. If you specify a path, the path will be searched for a file with the name "\*\_background.\*"
+- Output ([Path]) Where you want the output files to land.
+- _One additional command line switch "Jobfolder" is supported; described in the next section.
     
-- Job Folder (most convenient)
+# Job Folder (most convenient) #
   - First launch your Anaconda Environment into a Terminal.
   - At the command prompt, run:
 ```
 powershell.exe aiclean.ps1 -Jobfolder [Path]
 ```
-  - The path specified will be searched for \*\_background.\* and \*\_plate.\* image files; all other image files will be used as subjects. The default output folder of [Path]\\output is used for output files.
+The path specified will be searched for \*\_background.\* and \*\_plate.\* image files; all other image files will be used as subjects. The default output folder of [Path]\\output is used for output files.
