@@ -20,7 +20,10 @@ I wanted to experiment with the project and endlessly renaming files was becomin
 Ensure PowerShell 4 or higher is installed on the machine where the matting project is configured. (The script was developed in V5.1) Copy the aiclean.ps1 powershell script into the root of the project folder. That's all. If you need instructions on installing the Background-Matting project on Windows, see the "Related" section below.
 
 ## Use ##
+#### This script is inteneded to be used with images in a vertical orientation and will rotate 270° prior to processing if the image is horizontal. The Deeplab segmentation network needs people to be upright in the photos. If your photos are horizontal with upright people, you'll need to modify the script to prevent rotation. ####
+
 There are 3 ways to use the script:
+
 ### Prompt (most cumbersome) ###
   - First launch your Anaconda Environment into a Terminal.
   - At the command prompt, run:
